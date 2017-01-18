@@ -1,0 +1,9 @@
+o Many of the stats reported (i.e. calibration data) do not make sense and
+  need to be verified.  This are non-critical stat but still important
+
+o All of the timers should be ensured/calibrated
+
+o STENCIL: 
+        - The calibration step only considers local computation and ignores
+          the communication step.  This is wrong and the considerable 
+          communication step should be considered.
