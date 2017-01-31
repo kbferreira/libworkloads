@@ -13,16 +13,16 @@ include_directories( SYSTEM ${MPI_INCLUDE_PATH} )
 add_library( workloads STATIC
              selfish.c timing.c stencil.c workloads.c fwq.c ftq.c
              simple-noise.c )
-target_link_libraries( workloads ${MPI_LIBRARIES} )
+target_link_libraries( workloads ${MPI_C_LIBRARIES} )
 
-if( MPI_COMPILE_FLAGS )
+if( MPI_C_COMPILE_FLAGS )
         set_target_properties( workloads PROPERTIES COMPILE_FLAGS
-                               "${MPI_COMPILE_FLAGS}" )
+                "${MPI_C_COMPILE_FLAGS}" )
 endif()
 
-if( MPI_LINK_FLAGS )
+if( MPI_C_LINK_FLAGS )
         set_target_properties( workloads PROPERTIES LINK_FLAGS
-                               "${MPI_LINK_FLAGS}" )
+                "${MPI_C_LINK_FLAGS}" )
 endif()
 
 set( CMAKE_REQUIRED_LIBRARIES "${CMAKE_REQUIRED_LIBRARIES}"

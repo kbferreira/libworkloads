@@ -12,12 +12,12 @@ include_directories( ${CMAKE_SOURCE_DIR}/src )
 add_executable( link_test link_test.c )
 target_link_libraries( link_test workloads )
 
-if( MPI_COMPILE_FLAGS )
-        set_target_properties( link_test PROPERTIES COMPILE_FLAGS "${MPI_COMPILE_FLAGS}" )
+if( MPI_C_COMPILE_FLAGS )
+        set_target_properties( link_test PROPERTIES COMPILE_FLAGS "${MPI_C_COMPILE_FLAGS}" )
 endif()
 
-if( MPI_LINK_FLAGS )
-        set_target_properties( link_test PROPERTIES LINK_FLAGS "${MPI_LINK_FLAGS}" )
+if( MPI_C_LINK_FLAGS )
+        set_target_properties( link_test PROPERTIES LINK_FLAGS "${MPI_C_LINK_FLAGS}" )
 endif()
 
 #define a macro to simplify adding tests
