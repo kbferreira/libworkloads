@@ -28,7 +28,7 @@ static __inline__ ticks_t rdtsc(void)
 
 static __inline__ ticks_t rdtsc(void)
 {
-  unsigned t1;
+  unsigned long long t1;
   __asm__ __volatile__( \
                        "isb                      \n"          \
                        "mrs %0, cntvct_el0       \n"          \
