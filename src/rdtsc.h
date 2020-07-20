@@ -23,9 +23,20 @@ static __inline__ ticks_t rdtsc(void)
   __asm__ __volatile__ ("rdtsc" : "=a"(lo), "=d"(hi));
   return ( (ticks_t)lo)|( ((ticks_t)hi)<<32 );
 }
+
+#elif defined(__aarch64__)
+
+static __inline__ ticks_t rdtsc(void)
+{
+  unsigned t1;
+  __asm__ __volatile__( \
+                       "isb                      \n"          \
+                       "mrs %0, cntvct_el0       \n"          \
+                       : "=r"(t1) : : "memory"); 
+  return ( (ticks_t)t1 );
+}
+
 #elif defined(__powerpc__)
-
-
 static inline ticks_t rdtsc(void)
 {
   unsigned long long int result=0;
