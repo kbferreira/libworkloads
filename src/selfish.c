@@ -278,6 +278,11 @@ selfish_run( void *v, void *t )
 
                 if( ++sample >= d->max ){
                         d->list = realloc( d->list, sizeof( datapoint_t ) * d->max * 2 );
+                        if( d->list == NULL ) {
+                          // !!!! DEBUG !!!!
+                          printf("Failed to ALLOCATE %d bytes\n", sizeof( datapoint_t ) * d->max * 2);
+                          fflush(stdout);
+                        }
                         assert( d->list != NULL );
                         d->max = d->max * 2;
                 }
