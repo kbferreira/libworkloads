@@ -209,6 +209,9 @@ selfish_setup( void *v, void *p )
 
         assert( d->max > 0 );
 
+        // !!!! DEBUG !!!!
+        fprintf(stderr, "**** selfish_setup **** d-max = %ld\n", d->max);
+        fflush(stderr);
         d->list = malloc( sizeof( datapoint_t ) * d->max );
         assert( d->list != NULL );
 
