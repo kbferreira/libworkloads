@@ -29,9 +29,11 @@ get_ticks_per_second( int rounds )
                 t2 = rdtsc();
                 end = PMPI_Wtime();
 
+#if 0
                 // !!!! DEBUG !!!!
                 printf("(get_ticks_per_second) TIMESTAMPS: t1 = %ld / t2 = %ld / t2-t1 = %ld / start = %f / end = %f\n", 
                        t1, t2, t2-t1, start, end); 
+#endif
 
                 res[ i ] = ( uint64_t )( ceil( ( ( double )t2 - ( double )t1 ) /
                                 ( end - start ) ) );
