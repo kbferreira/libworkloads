@@ -91,6 +91,9 @@ selfish_summary( FILE *fp )
 int
 selfish_write( FILE *fp, void *v, void *p )
 {
+        // !!!! DEBUG !!!!
+        printf("*** STARTING selfish_write\n");
+        fflush(stdout);
         uint64_t start;
         dlist_t *d = NULL;
 
